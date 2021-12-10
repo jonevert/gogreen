@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method="post" class="form form-horizontal" >
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br/>
+        <form class="border border-light p-5">
+            <input type="submit" class="btn btn-info btn-block my-4" value="Log in"  />
+            <div class="text-center">
+                <p>Not a member?
+                    <a href="{% url "register-index" %}">Register</a>
+                </p>
+            </div>
+        </form>
+    </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+#Footer, a {
+  color: black;
+}
+
+.div-wrapper {
+  position: relative;
+  width: 160px;
+}
+
+.div-wrapper img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+

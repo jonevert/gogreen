@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container my-4 border-bottom">
+        <h1 class="display-5">Overview</h1>
+    </div>
+    <div class="container mt-2">
+        <h5 class="display-6 mb-4">Traffic</h5>
+        <p class="fs-5">The following graph displays the total number of vehicles observed each day.</p>
+        <div class="container-fluid border-bottom border-3 mb-5">
+            {% include "overview/plots/car_count.html" %}
+
+        </div>
+
+        <h5 class="display-6 mb-4">Emissions</h5>
+        <p class="fs-5">The following graph displays the average CO2 emissions of vehicles observed each day.<br>
+        The emissions are measured in grams of CO2 per kilometer driven.</p>
+        <div class="container-fluid border-bottom border-3 mb-5"">
+            {% include "overview/plots/avg_emissions.html" %}
+
+        </div>
+
+        <h5 class="display-6 mb-4">Zero emission ratio</h5>
+        <p class="fs-5">The following graph displays the percentage of vehicles with zero CO2 emission observed each day.</p>
+        <div class="container-fluid">
+            {% include "overview/plots/zero_ratio.html" %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

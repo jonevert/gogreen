@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/activity.css' %}">
+    <div class="container my-4 border-bottom">
+        <h1 class="display-5">Recent activity</h1>
+    </div>
+    <div class="container mt-5" id="Activity_col">
+        <div class="row">
+            <div class="col border-end border-3" id="Activity_col">
+                <h4 class="mb-4">Information:</h4>
+                <div class="container-fluid">
+                    <div class="container border-bottom">
+                        <h5>Plate number:</h5>
+                        <p>{{Instance.plate_nr}}</p>
+                    </div>
+                    <div class="container mt-2 border-bottom">
+                        <h5>Location:</h5>
+                        <p>{{Location.name}}</p>
+                    </div>
+                    <div class="container mt-2 border-bottom">
+                        <h5>Datetime:</h5>
+                        <p>{{Instance.timestamp}}</p>
+                    </div>
+                    <div class="container mt-2 border-bottom">
+                        <h5>Passengers:</h5>
+                        {% if Instance.no_passangers == 0 %}
+                            <p>N/A</p>
+                        {% else %}
+                            <p>{{Instance.no_passangers}}</p>
+                        {% endif %}
+                    </div>
+                    <div class="container mt-2 ">
+                        <h5>CO2 [g/km]:</h5>
+                        <p>{{Car.co2}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-7 mx-2 " id="Activity_col">
+                <h4 class="mb-4">Image capture for {{ Instance.plate_nr }}</h4>
+                <img class="mw-100 border border-2 rounded border-primary" src="{% get_static_prefix %}images/{{Instance.impath}}" alt="Newest_Car_Image">
+            </div>
+            <div class="col mx-2 border-start border-3 py-2" id="Activity_col">
+                <h4 class="mb-4">Latest readings:</h4>
+                <div class="container overflow-scroll" id="Activity_list">
+                    {% for instance in PlateList %}
+                        <a href="{{instance.id}}">
+                            {{ instance }}
+                        </a>
+                        <hr>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+

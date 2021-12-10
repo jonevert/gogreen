@@ -1,0 +1,57 @@
+#box {
+  width: 22%;
+  height: 70em;
+  border: solid black;
+  padding: 20px;
+  margin: 10px;
+  background-color: lightgray;
+  float: right;
+  overflow: scroll;
+}
+
+#info {
+  width: 22%;
+  height: 70em;
+  border: solid black;
+  padding: 20px;
+  margin: 10px;
+  background-color: lightgray;
+  float: left;
+}
+
+#AlertBox {
+  height: 15em;
+  border: solid black;
+  padding: 20px;
+  margin: 10px;
+  background-color: lightgray;
+  display: inline-block; 
+  vertical-align:top;
+}
+
+#ImageBox {
+  height: 20em;
+  padding: 20px;
+  margin: 10px;
+  background-color: lightgray;
+  display: inline-block; 
+  vertical-align:top;
+}
+
+#Flex {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+#Activity_col {
+  height: 75vh;
+}
+
+#Activity_list {
+  height: 65vh;
+}
+
+#Activity_col, a {
+  color: black;
+}

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container my-4 border-bottom">
+        <h1 class="display-5">Welcome {{ user.first_name }} !</h1>
+    </div>
+    <div class="container my-4 border-bottom">
+        <h3>Today's summary ({{ Data.Date }}):</h3>
+        <table class="table table-borderless">
+            <thead>
+            <tr>
+                <th class= "text-center" scope="col">Total nr. of cars</th>
+                <th class= "text-center" scope="col">Number of zero emitting cars</th>
+                <th class= "text-center" scope="col">Percentage of zero emitting cars</th>
+                <th class= "text-center" scope="col">Average CO2 emissions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                {% if Data.no_total > 0 %}
+                    <td class= "text-center">{{ Data.no_total }}</td>
+                    <td class= "text-center">{{ Data.no_zeros }}</td>
+                    <td class= "text-center">{{ Data.Ratio }} %</td>
+                    <td class= "text-center">{{ Data.Avg_CO2 }} g/km</td>
+                {% else %}
+                    <td class= "text-center">{{ Data.no_total }}</td>
+                    <td class= "text-center">{{ Data.no_zeros }}</td>
+                    <td class= "text-center">NaN</td>
+                    <td class= "text-center">0 g/km</td>
+                {% endif %}
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h3>Latest car</h3>
+        <div class="row">
+            <div class="col-7 mx-2">
+                <h4 class="mb-4">Image capture</h4>
+                <img class="mw-100 border border-2 rounded border-primary" src="{% get_static_prefix %}images/{{latest.inst_info.impath}}" alt="Newest_Car_Image">
+            </div>
+            <div class="col ">
+                <h4 class="mb-4">Information:</h4>
+
+                <div class="container">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th>Plate nr:   </th>
+                            <td>{{ latest.inst_info.plate_nr }}</td>
+                        <tr>
+                            <th>Location:   </th>
+
+                            <td>{{ latest.loc.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Time:   </th>
+                            <td>{{ latest.inst_info.timestamp }}</td>
+                        <tr>
+                            <th>CO2 emission:   </th>
+                            <td>{{ latest.car_info.co2 }} g/km</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
