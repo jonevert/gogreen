@@ -14,7 +14,7 @@ Kerfið sem úr varð er í formi heimasíðu GoGreen. Þar er tenging við Samg
 [Styrkár Blær Styrmisson](https://github.com/Styrkar1 "GitHub")
 
 # Leiðbeinendur
-Gylfi Þór Guðmundsson
+Gylfi Þór Guðmundsson \
 Guðjón Björnsson
 
 # Prófdómari
